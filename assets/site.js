@@ -10,6 +10,23 @@
     });
   }
 
+  var footerGrid = document.querySelector('.footer-grid');
+  if (footerGrid) {
+    var footerCols = footerGrid.children;
+    if (footerCols.length) {
+      var contactCol = footerCols[footerCols.length - 1];
+      var head = contactCol.querySelector('.footer-head');
+      var list = contactCol.querySelector('.footer-list');
+      if (head) head.textContent = 'Contact';
+      if (list) {
+        list.innerHTML = '<span>Muhammad Yousaf · Director & Owner</span>' +
+          '<a href="mailto:myousuf47@hotmail.com">myousuf47@hotmail.com</a>' +
+          '<a href="tel:3088747482">3088747482</a>' +
+          '<span>Lahore, Pakistan</span>';
+      }
+    }
+  }
+
   var form = document.querySelector('[data-rfq]');
   if (form) {
     var done = document.querySelector('[data-done]');
