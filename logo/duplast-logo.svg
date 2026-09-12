@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382 100" role="img" aria-labelledby="title">
+  <title id="title">DuPlast</title>
+  <g font-family="Nunito, 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="100" letter-spacing="-1.2" fill="#004d73">
+    <text x="0" y="75.5">D</text><text x="141.74" y="75.5">Plast</text>
+  </g>
+  <g transform="translate(78 0) scale(0.815)" fill="#00734d">
+    <circle cx="38" cy="12" r="12"/>
+    <path d="M0 24v38c0 20.99 16.99 38 38 38s38-17.01 38-38V24Q60 30 57 62c0 10.49-8.51 19-19 19s-19-8.51-19-19Q16 30 0 24Z"/>
+  </g>
+</svg>
