@@ -3,29 +3,12 @@
   const qs = (s, scope = document) => scope.querySelector(s);
   const qsa = (s, scope = document) => [...scope.querySelectorAll(s)];
 
-  const ceoImages = qsa('[data-ceo-photo]');
-  if (ceoImages.length) {
-    ceoImages.forEach(img => {
-      img.style.opacity = '0';
-      img.style.transition = 'opacity .28s ease';
-    });
-    const base = 'https://raw.githubusercontent.com/jamal715/DUPLAST/main/assets/ceo';
-    const parts = Array.from({ length: 6 }, (_, i) => `${base}/${String(i + 1).padStart(2, '0')}.txt`);
-    Promise.all(parts.map(url => fetch(url, { cache: 'force-cache' }).then(r => {
-      if (!r.ok) throw new Error(`CEO image data failed: ${url}`);
-      return r.text();
-    }))).then(chunks => {
-      const src = `data:image/jpeg;base64,${chunks.map(c => c.trim()).join('')}`;
-      ceoImages.forEach(img => {
-        const reveal = () => { img.style.opacity = '1'; };
-        img.addEventListener('load', reveal, { once: true });
-        img.src = src;
-        if (img.complete) reveal();
-      });
-    }).catch(() => {
-      ceoImages.forEach(img => { img.style.opacity = '1'; });
-    });
-  }
+  // Use the final CEO portrait directly from the repository. Keeping one canonical
+  // asset avoids the previous base64-chunk loading path and guarantees consistent
+  // rendering on the home and company pages across desktop and mobile.
+  qsa('[data-ceo-photo]').forEach(img => {
+    img.src = 'assets/ceo-muhammad-yousaf.jpg';
+  });
 
   const toggle = qs('[data-nav-toggle]');
   const mobileNav = qs('[data-mobile-nav]');
@@ -45,6 +28,7 @@
     qsa('a', mobileNav).forEach(a => a.addEventListener('click', closeNav));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
   }
+
   const filters = qsa('[data-filter]');
   const products = qsa('[data-product]');
   const applyFilter = value => {
@@ -60,6 +44,7 @@
     const initial = location.hash.replace('#', '');
     if (initial && filters.some(b => b.dataset.filter === initial)) applyFilter(initial);
   }
+
   const form = qs('[data-rfq-form]');
   if (form) {
     const status = qs('[data-form-status]', form);
@@ -93,6 +78,7 @@
       window.open(`https://wa.me/923088747482?text=${encodeURIComponent(message(data))}`, '_blank', 'noopener');
     });
   }
+
   const reveals = qsa('.reveal');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const io = new IntersectionObserver(entries => {
