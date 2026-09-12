@@ -3,11 +3,9 @@
   const qs = (s, scope = document) => scope.querySelector(s);
   const qsa = (s, scope = document) => [...scope.querySelectorAll(s)];
 
-  // Use the final CEO portrait directly from the repository. Keeping one canonical
-  // asset avoids the previous base64-chunk loading path and guarantees consistent
-  // rendering on the home and company pages across desktop and mobile.
+  // Use one canonical portrait across the home and company pages.
   qsa('[data-ceo-photo]').forEach(img => {
-    img.src = 'assets/ceo-muhammad-yousaf.jpg';
+    img.src = 'https://raw.githubusercontent.com/jamal715/DUPLAST/main/assets/ceo-muhammad-yousaf.jpg';
   });
 
   const toggle = qs('[data-nav-toggle]');
