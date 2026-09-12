@@ -2,6 +2,30 @@
   'use strict';
   const qs = (s, scope = document) => scope.querySelector(s);
   const qsa = (s, scope = document) => [...scope.querySelectorAll(s)];
+
+  const ceoImages = qsa('[data-ceo-photo]');
+  if (ceoImages.length) {
+    ceoImages.forEach(img => {
+      img.style.opacity = '0';
+      img.style.transition = 'opacity .28s ease';
+    });
+    const parts = Array.from({ length: 6 }, (_, i) => `assets/ceo/${String(i + 1).padStart(2, '0')}.txt`);
+    Promise.all(parts.map(url => fetch(url, { cache: 'force-cache' }).then(r => {
+      if (!r.ok) throw new Error(`CEO image data failed: ${url}`);
+      return r.text();
+    }))).then(chunks => {
+      const src = `data:image/jpeg;base64,${chunks.map(c => c.trim()).join('')}`;
+      ceoImages.forEach(img => {
+        const reveal = () => { img.style.opacity = '1'; };
+        img.addEventListener('load', reveal, { once: true });
+        img.src = src;
+        if (img.complete) reveal();
+      });
+    }).catch(() => {
+      ceoImages.forEach(img => { img.style.opacity = '1'; });
+    });
+  }
+
   const toggle = qs('[data-nav-toggle]');
   const mobileNav = qs('[data-mobile-nav]');
   const closeNav = () => {
