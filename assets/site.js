@@ -9,7 +9,8 @@
       img.style.opacity = '0';
       img.style.transition = 'opacity .28s ease';
     });
-    const parts = Array.from({ length: 6 }, (_, i) => `assets/ceo/${String(i + 1).padStart(2, '0')}.txt`);
+    const base = 'https://raw.githubusercontent.com/jamal715/DUPLAST/main/assets/ceo';
+    const parts = Array.from({ length: 6 }, (_, i) => `${base}/${String(i + 1).padStart(2, '0')}.txt`);
     Promise.all(parts.map(url => fetch(url, { cache: 'force-cache' }).then(r => {
       if (!r.ok) throw new Error(`CEO image data failed: ${url}`);
       return r.text();
