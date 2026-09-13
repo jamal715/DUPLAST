@@ -24,43 +24,39 @@
     />
     <link rel="stylesheet" href="assets/site.css" />
     <style>
-      .company-ceo-hero {
-        aspect-ratio: 4/5;
-        max-width: 430px;
-        width: 100%;
-        justify-self: center;
-        align-self: center;
-      }
-      .company-ceo-hero > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 18%;
-        display: block;
-      }
-      .founder__portrait > img:first-child {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 22%;
-        display: block;
-      }
-      .founder__badge img {
-        width: 30px !important;
-        height: 40px !important;
-        object-fit: contain !important;
-        object-position: center !important;
-        position: static !important;
-        flex: 0 0 auto;
-      }
-      @media (min-width: 900px) {
-        .company-ceo-hero {
-          justify-self: end;
-        }
-      }
-    </style>
+.company-page .company-hero{background:#00283c;color:white;padding:64px 0 0}
+.company-page .company-hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.company-page .company-hero h1{font-size:clamp(3rem,5.6vw,5.25rem);line-height:1.04;max-width:12ch;margin:20px 0 24px}
+.company-page .company-hero h1 em{color:#6fd3a5;font-style:normal}
+.company-page .company-hero .eyebrow{color:#6fd3a5;font-size:.875rem}
+.company-page .company-hero p{color:#d1e0e6;font-size:1.125rem;line-height:1.75;max-width:49ch}
+.company-page .company-hero__link{display:inline-block;margin-top:25px;padding-bottom:7px;border-bottom:1px solid #6fd3a5;color:white;font-weight:800}
+.company-page .director-photo{margin:0;background:#e0e8eb;border-radius:18px;overflow:hidden;position:relative}
+.company-page .director-photo img{width:100%;height:auto;aspect-ratio:4/4.7;object-fit:cover;object-position:center top}
+.company-page .director-photo figcaption{background:white;color:#004d73;padding:18px 24px}
+.company-page .director-photo strong{display:block;font-size:1.2rem}.company-page .director-photo span{font-size:.875rem;color:#62717b}
+.company-page .company-facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid #315267}
+.company-page .company-facts div{padding:28px 22px 30px 0}.company-page .company-facts strong{font-size:2rem;font-family:var(--font-condensed);display:block;color:#6fd3a5}
+.company-page .company-facts span{font-size:.9375rem;color:#d1e0e6}
+.company-page .director-letter{padding:84px 0;background:#fff}
+.company-page .letter-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:70px}
+.company-page .letter-heading h2{font-size:clamp(2.5rem,4vw,3.6rem);line-height:1.08;margin-top:16px}
+.company-page .letter-heading .eyebrow{font-size:.875rem}
+.company-page .letter-body blockquote{font-family:var(--font-condensed);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.2;color:#004d73;margin:0 0 28px;padding-left:22px;border-left:3px solid #00734d}
+.company-page .letter-body p{font-size:1.0625rem;line-height:1.85;color:#485e6a;margin-bottom:20px}
+.company-page .letter-signature{border-top:1px solid #dce5e9;padding-top:22px;margin-top:28px}
+.company-page .letter-signature strong{display:block;color:#004d73;font-size:1.2rem}.company-page .letter-signature span{color:#62717b;font-size:.9375rem}
+.company-page .company-priorities{padding:64px 0;background:#eef3f5}
+.company-page .company-priorities h2{font-size:2.6rem;margin:12px 0 32px}
+.company-page .priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.company-page .priority-grid article{border-top:2px solid #00734d;padding-top:20px}
+.company-page .priority-grid small{color:#00734d;font-size:.875rem;font-weight:800}.company-page .priority-grid h3{font-size:1.8rem;margin:12px 0}
+.company-page .priority-grid p{font-size:1rem;line-height:1.75;color:#485e6a}
+.company-page .company-contact{padding:48px 0;background:white}.company-page .company-contact .container{display:flex;align-items:center;justify-content:space-between;gap:24px}.company-page .company-contact h2{font-size:2.3rem}.company-page .company-contact p{margin-top:10px;color:#62717b}
+@media(max-width:760px){.company-page .company-hero{padding-top:36px}.company-page .company-hero__grid,.company-page .letter-grid{grid-template-columns:1fr;gap:32px}.company-page .company-hero h1{max-width:15ch}.company-page .director-photo{width:min(100%,440px);justify-self:center}.company-page .company-facts{margin-top:32px;gap:12px}.company-page .company-facts div{padding:20px 0}.company-page .company-facts span{font-size:.875rem}.company-page .director-letter{padding:48px 0}.company-page .priority-grid{grid-template-columns:1fr;gap:30px}.company-page .company-contact .container{align-items:flex-start;flex-direction:column}.company-page .company-priorities{padding:44px 0}}
+</style>
   </head>
-  <body>
+  <body class="company-page">
     <div class="announcement">
       <div class="container announcement__inner">
         <span>DuPlast (SMC-Private) Limited</span
@@ -111,206 +107,50 @@
       </div>
     </div>
     <main>
-      <section class="page-hero">
-        <div class="container page-hero__grid">
-          <div>
-            <div class="eyebrow">Company</div>
-            <h1>Industry experience, now independent.</h1>
-            <p class="lead">
-              DuPlast was established in 2022 with a technical foundation in
-              polymer R&amp;D, quality, procurement and supply.
-            </p>
-            <div class="stat-grid">
-              <div class="stat">
-                <strong>2022</strong><span>Established</span>
-              </div>
-              <div class="stat">
-                <strong>10+ yrs</strong><span>Industry background</span>
-              </div>
-              <div class="stat">
-                <strong>100+</strong><span>Customers of every scale</span>
-              </div>
-            </div>
-          </div>
-          <div class="page-hero__image company-ceo-hero">
-            <img
-              src="assets/director-muhammad-yousaf.jpg"
-              alt="Muhammad Yousaf, Director and Owner of DuPlast"
-              width="1536"
-              height="1536"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </section>
-      <section class="section section--soft sustainability">
-        <div class="container sustainability__grid">
-          <div class="sustainability__intro reveal">
-            <div class="eyebrow">A message from the Director</div>
-            <h2>Progress must be responsible by design.</h2>
-            <div class="sustainability__signature">
-              <span>Muhammad Yousaf</span>
-              <small>Director &amp; Owner</small>
-            </div>
-          </div>
-          <div class="sustainability__message reveal">
-            <blockquote>
-              “Pakistan’s manufacturing future depends on doing more with every
-              unit of material, energy and trust.”
-            </blockquote>
-            <p>
-              For DuPlast, sustainability is not a separate promise; it is part
-              of sound polymer engineering and disciplined supply. We aim to
-              help customers select materials responsibly, improve process
-              efficiency, reduce avoidable waste and build supply relationships
-              that remain dependable as international expectations evolve.
-            </p>
-            <p>
-              Our direction is practical: stronger traceability, clearer
-              technical guidance, responsible sourcing and continuous alignment
-              with globally recognised environmental, quality and governance
-              practices. In Pakistan’s demanding business landscape, lasting
-              progress will come from solutions that are commercially viable,
-              locally relevant and internationally credible.
-            </p>
-            <div class="sustainability__principles" aria-label="Our sustainability priorities">
-              <span>Resource efficiency</span>
-              <span>Responsible sourcing</span>
-              <span>Quality &amp; traceability</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container media-split">
-          <div class="media-split__copy reveal">
-            <div class="eyebrow">Experience timeline</div>
-            <h2 class="section-title">The background behind the business.</h2>
-            <div class="timeline">
-              <div class="timeline__item">
-                <div class="timeline__year">2017</div>
-                <div>
-                  <h3>Trainee start</h3>
-                  <p>Quality assurance and product development exposure.</p>
-                </div>
-              </div>
-              <div class="timeline__item">
-                <div class="timeline__year">2017–21</div>
-                <div>
-                  <h3>BRCC / Bin Rasheed</h3>
-                  <p>
-                    R&amp;D, masterbatch formulations and raw-material testing.
-                  </p>
-                </div>
-              </div>
-              <div class="timeline__item">
-                <div class="timeline__year">2021–22</div>
-                <div>
-                  <h3>Kompass Pakistan</h3>
-                  <p>Polymer compounding and formulation optimisation.</p>
-                </div>
-              </div>
-              <div class="timeline__item">
-                <div class="timeline__year">2022</div>
-                <div>
-                  <h3>LCI</h3>
-                  <p>Commercial and supply-side experience.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="gallery reveal">
-            <div class="gallery__item">
-              <img
-                src="https://images.pexels.com/photos/11432049/pexels-photo-11432049.png?auto=compress&dpr=1&w=1800"
-                alt="Warehouse and inventory"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="gallery__item">
-              <img
-                src="https://images.pexels.com/photos/38741337/pexels-photo-38741337/free-photo-of-colorful-plastic-pellets-on-white-background.jpeg?auto=compress&dpr=1&w=1600"
-                alt="Plastic pellets"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="gallery__item">
-              <img
-                src="https://images.pexels.com/photos/30772419/pexels-photo-30772419/free-photo-of-vibrant-colorful-pigment-powders-in-market-display.jpeg?auto=compress&dpr=1&w=1600"
-                alt="Pigment powders"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section section--navy">
-        <div class="container feature-grid">
-          <article
-            class="feature reveal"
-            style="
-              background: rgba(255, 255, 255, 0.06);
-              border-color: rgba(255, 255, 255, 0.14);
-              color: white;
-            "
-          >
-            <div class="feature__n" style="color: var(--green-300)">01</div>
-            <h3>Technical first</h3>
-            <p style="color: rgba(255, 255, 255, 0.7)">
-              Understand the process before recommending the material.
-            </p>
-          </article>
-          <article
-            class="feature reveal"
-            style="
-              background: rgba(255, 255, 255, 0.06);
-              border-color: rgba(255, 255, 255, 0.14);
-              color: white;
-            "
-          >
-            <div class="feature__n" style="color: var(--green-300)">02</div>
-            <h3>Commercially practical</h3>
-            <p style="color: rgba(255, 255, 255, 0.7)">
-              Material choices have to work in production and in the cost model.
-            </p>
-          </article>
-          <article
-            class="feature reveal"
-            style="
-              background: rgba(255, 255, 255, 0.06);
-              border-color: rgba(255, 255, 255, 0.14);
-              color: white;
-            "
-          >
-            <div class="feature__n" style="color: var(--green-300)">03</div>
-            <h3>Direct accountability</h3>
-            <p style="color: rgba(255, 255, 255, 0.7)">
-              Customers can reach the owner directly for serious enquiries.
-            </p>
-          </article>
-        </div>
-      </section>
-      <section class="cta" style="padding-top: 72px">
-        <div class="container">
-          <div class="cta__box reveal">
-            <div class="eyebrow">Talk directly</div>
-            <h2>Muhammad Yousaf.</h2>
-            <p>Director &amp; Owner, DuPlast (SMC-Private) Limited.</p>
-            <div class="cta__actions">
-              <a class="btn btn--light" href="tel:+923088747482"
-                >Call +92 308 8747482</a
-              ><a class="btn btn--green" href="mailto:myousuf47@hotmail.com"
-                >Email Muhammad</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+<section class="company-hero">
+  <div class="container">
+    <div class="company-hero__grid">
+      <div>
+        <div class="eyebrow">DuPlast · Lahore, Pakistan</div>
+        <h1>Materials expertise.<br><em>Responsible ambition.</em></h1>
+        <p>Established in 2022, DuPlast brings technical understanding to the supply of masterbatch, polymers, pigments and additives. We connect material selection with the realities of production—and the ambitions of the businesses we serve.</p>
+        <a class="company-hero__link" href="#director-message">Read our Director’s message ↓</a>
+      </div>
+      <figure class="director-photo">
+        <img src="assets/director-muhammad-yousaf.jpg" alt="Muhammad Yousaf, Director and Owner of DuPlast" width="2048" height="2048" fetchpriority="high">
+        <figcaption><strong>Muhammad Yousaf</strong><span>Director &amp; Owner</span></figcaption>
+      </figure>
+    </div>
+    <div class="company-facts" aria-label="Company highlights">
+      <div><strong>100+</strong><span>Currently serving customers of every scale</span></div>
+      <div><strong>2022</strong><span>Established in Pakistan</span></div>
+      <div><strong>Lahore</strong><span>Our commercial base</span></div>
+    </div>
+  </div>
+</section>
+<section class="director-letter" id="director-message">
+  <div class="container letter-grid">
+    <div class="letter-heading"><div class="eyebrow">Director’s message · Sustainability</div><h2>Better industry.<br>Shared responsibility.</h2></div>
+    <div class="letter-body">
+      <blockquote>“Pakistan’s industrial progress should be measured not only by what we produce, but by how responsibly we use the resources entrusted to us.”</blockquote>
+      <p>For manufacturers in Pakistan, sustainability must make sense on the factory floor as well as in the boardroom. Energy costs, material losses and supply uncertainty make efficiency a commercial necessity. Environmental responsibility and business resilience must move forward together.</p>
+      <p>At DuPlast, our ambition is to help customers make better material decisions: choosing grades suited to their application, reducing avoidable waste and considering durability and recyclability alongside performance and cost. A material’s value extends beyond its purchase price to how it performs throughout its useful life.</p>
+      <p>International credibility is earned through evidence, not broad promises. We aim to strengthen sourcing transparency, technical documentation and traceability, and support customers in understanding the quality, safety and environmental requirements of their intended markets. Any claim about recycled content, performance or compliance should be supported by appropriate documentation and testing.</p>
+      <p>We currently serve more than 100 customers, from small businesses to larger manufacturers. Our commitment is to make responsible progress practical at every scale—combining Pakistan’s entrepreneurial strength with the discipline expected in international supply chains. That is the business we want to build, and the future we want to help shape.</p>
+      <div class="letter-signature"><strong>Muhammad Yousaf</strong><span>Director &amp; Owner · DuPlast (SMC-Private) Limited</span></div>
+    </div>
+  </div>
+</section>
+<section class="company-priorities">
+  <div class="container"><div class="eyebrow">Our direction</div><h2>Responsibility, made practical.</h2>
+  <div class="priority-grid">
+    <article><small>01 / MATERIAL EFFICIENCY</small><h3>Make every input count.</h3><p>Focus on application-fit material selection, consistent processing and opportunities to reduce avoidable rejects and waste.</p></article>
+    <article><small>02 / INFORMED SOURCING</small><h3>Know what goes in.</h3><p>Work towards clearer supplier information, material documentation and traceability to support confident purchasing decisions.</p></article>
+    <article><small>03 / EVIDENCE-LED QUALITY</small><h3>Build trust through proof.</h3><p>Align material discussions with end-use requirements, appropriate testing and substantiated claims—not one-size-fits-all assurances.</p></article>
+  </div></div>
+</section>
+<section class="company-contact"><div class="container"><div><h2>Let’s discuss your next requirement.</h2><p>Practical material guidance. Direct accountability.</p></div><a class="btn btn--primary" href="contact.html#rfq">Talk to DuPlast</a></div></section>
+</main>
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
