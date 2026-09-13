@@ -3,9 +3,9 @@
   const qs = (s, scope = document) => scope.querySelector(s);
   const qsa = (s, scope = document) => [...scope.querySelectorAll(s)];
 
-  // Use one canonical portrait across the home and company pages.
+  // Fallback for any legacy CEO image placeholders still carrying data-ceo-photo.
   qsa('[data-ceo-photo]').forEach(img => {
-    img.src = 'https://raw.githubusercontent.com/jamal715/DUPLAST/main/assets/ceo-muhammad-yousaf.jpg';
+    img.src = 'https://cdn.jsdelivr.net/gh/jamal715/DUPLAST@main/assets/ceo-muhammad-yousaf.jpg';
   });
 
   const toggle = qs('[data-nav-toggle]');
